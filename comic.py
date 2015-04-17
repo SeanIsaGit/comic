@@ -4,7 +4,8 @@ import time
 from bs4 import BeautifulSoup
 import os
 import re
-
+# This function parses the HTML to get the comic pictue off of the website. It also extracts the name of the comic
+# and uses that as the name of the file. It also downloads the file.
 def get_comic(url):
     com_site = urllib2.urlopen(url)
     
@@ -25,14 +26,14 @@ def get_comic(url):
     print file_name + " retrieved"
     time.sleep(.5)
     
-    
+# setting up the variables    
 comic = None
 page_data = None
 comic_num = 0
 try_num = 0
 os.makedirs('C:\\Users\\Owner\\Desktop\\Comics\\')
 directory = "C:\\Users\\Owner\\Desktop\\Comics\\"
-
+# This loop iterates through each of the webpages containing all of the comics. It also calls the only function in the script.
 while comic_num <=5000:
     comic_num += 1
     url = "http://www.xkcd.com/" + str(comic_num)
